@@ -7,6 +7,7 @@ const cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var loginRouter = require('./routes/login');
 
 var app = express();
 
@@ -22,28 +23,42 @@ app.use(cookieParser());
 app.use('/static',express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
-
-
-
 const dotenv = require('dotenv');
 dotenv.config();
 
-const { MongoClient } = require("mongodb");
-const uri = `${process.env.MONGODB_URI}`;
-const client = new MongoClient(uri);
-async function run() {
-  try {
-    const database = client.db('test');
-    console.log('Connected to MongoDB server');
-    app.locals.database = database;
-    app.use('/', indexRouter);
-    app.use('/users', usersRouter);
-  } catch (err) {
-    console.error(err);
-    process.exit(1);
-  }
-}
-run().catch(console.dir);
+// const { MongoClient } = require("mongodb");
+// const uri = `${process.env.MONGODB_URI}`;
+// const client = new MongoClient(uri);
+
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+const database = mongoose.connection;
+
+database.on('error', console.error.bind(console, 'connection error:'));
+database.once('open', function() {
+  console.log('MongoDB connected!');
+});
+
+app.locals.database = database;
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/login', loginRouter);
+
+// async function run() {
+//   try {
+//     const database = client.db('test');
+//     console.log('Connected to MongoDB server');
+//     app.locals.database = database;
+//     app.use('/', indexRouter);
+//     app.use('/users', usersRouter);
+//     app.use('/login', loginRouter);
+//   } catch (err) {
+//     console.error(err);
+//     process.exit(1);
+//   }
+// }
+// run().catch(console.dir);
 
 
 // catch 404 and forward to error handler
