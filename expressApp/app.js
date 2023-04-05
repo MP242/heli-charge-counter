@@ -7,7 +7,6 @@ const cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var loginRouter = require('./routes/login');
 
 var app = express();
 
@@ -43,7 +42,6 @@ database.once('open', function() {
 app.locals.database = database;
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/login', loginRouter);
 
 // async function run() {
 //   try {
