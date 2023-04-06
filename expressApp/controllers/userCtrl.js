@@ -39,7 +39,7 @@ exports.createUser = async function(req, res, next) {
     });
 
     await newUser.save();
-    res.status(200).json(newUser);
+    res.status(201).json(newUser);
   } catch (err) {
     console.error(err);
     res.status(500).send('Error inserting user into database');
