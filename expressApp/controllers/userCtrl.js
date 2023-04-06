@@ -121,5 +121,5 @@ exports.login = async function(req, res, next) {
   // Générer un token et le renvoyer
   // const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
   const token = generateToken(user);
-  res.status(200).json({'token': token });
+  res.status(200).json({'token': token,"userName":user.name,"userId":user._id,"admin":user.admin});
 }
