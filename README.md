@@ -1,7 +1,7 @@
 # ReactJS_ExpressJS_MongoDB
 Front : ReactJS / Back : EpressJS / DB : MongoDB
 
-## WORKING FLOW :
+## WORK DONE :
 - CONNEXION DB MONGODB
 - CREATION MODEL USER
 - CRUD USER
