@@ -1,7 +1,7 @@
 import React,{ useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { useDeleteUser } from '../hooks/useDeleteUser'
-import { useCreateUser } from '../hooks/useCreateUser'
+import { useDeleteUser } from '../../hooks/useDeleteUser'
+import { useCreateUser } from '../../hooks/useCreateUser'
 
 function Users() {
 
