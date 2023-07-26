@@ -1,0 +1,61 @@
+// Counter.scss
+@use "src/styles/_variables.scss" as v;
+@use "src/styles/_mixins.scss" as m;
+
+.Counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 300px;
+    width: 200px;
+    color: #fff;
+    background: rgb(40,44,52);
+    background: radial-gradient(circle, rgba(40,44,52,1) 0%, rgba(28,32,38,1) 73%, rgba(24,24,24,1) 94%);
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Ombre portée
+    padding: 20px; // Marge intérieure pour l'espacement du contenu
+    transition: box-shadow 0.3s ease-in-out; // Animation de l'ombre portée au survol
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+    margin: 10px;
+
+    &:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    //au click je veux le meme effet que le click bouton
+    &:active {
+        
+        transform: scale(0.95); // Rétrécir légèrement au clic
+    }
+  
+    .Counter__title {
+      font-size: 24px;
+      font-weight: 350;
+      margin-bottom: 10px;
+      color:v.$light-color;
+    }
+  
+    .Counter__value {
+      font-size: 40px;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+  
+    .Counter__button {
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+  

@@ -1,0 +1,38 @@
+// Navbar.scss
+@use "src/styles/_variables.scss" as v;
+@use "src/styles/_mixins.scss" as m;
+
+.Navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    border-bottom: 1px solid #dedddd;
+    height: 70px;
+    // background-color: #bc4141;
+  
+    &__logo {
+      width: 10em;
+      height: 1em;
+    }
+
+    &__hamburger{
+      width: 5em;
+      height: 2em;
+      cursor: pointer;
+    }
+  
+    a {
+        margin: 0 1em;
+        text-decoration: none;
+        color: #007bff;
+        border-bottom: 1px solid transparent;
+            
+        transition: border-bottom 0.3s ease-in-out;
+    
+        &:hover {        
+          border-bottom-color: #007bff;
+        }
+    }
+  }
+  

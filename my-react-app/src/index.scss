@@ -1,0 +1,108 @@
+@use 'src/styles/_variables.scss' as v;
+
+/* Réinitialisation des marges et paddings pour tous les éléments */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Styles pour le corps du document */
+body {
+  /* font-family: "Roboto", sans-serif; */
+  font-family: 'Helvetica', sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Styles pour les titres h1 à h6 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: v.$base-margin;
+  margin-bottom: v.$base-margin;
+  color: v.$dark-color;
+  font-weight: bold;
+}
+
+/* Styles pour les paragraphes */
+p {
+  margin-bottom: v.$base-margin;
+  line-height: 1.6;
+}
+
+/* Styles pour les liens */
+a {
+  color: v.$primary-color;
+  text-decoration: none;
+
+  &:hover {
+    color: darken(v.$primary-color, 10%);
+  }
+}
+
+/* Styles pour les boutons */
+button {
+  width: v.$btn-width;
+  height: v.$btn-height;
+  // padding: v.$base-padding;
+  background-color: v.$primary-color;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken(v.$primary-color, 10%);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/* Styles pour les blocs de contenu */
+.container {
+  padding: v.$base-padding;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+/* Styles pour les sections */
+.section {
+  margin-bottom: v.$base-margin;
+
+  h2 {
+    /* Sous-titres pour les sections */
+    color: v.$secondary-color;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    /* Contenu des sections */
+    line-height: 1.5;
+  }
+}
+label{
+  color: v.$secondary-color;
+  
+}
+
+input {
+  width: 100%;
+  height: 40px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid v.$secondary-color;
+  border-radius: 5px;
+  color: v.$dark-color;
+  font-weight: bold;
+  &:focus {
+    outline: none;
+  }
+}
+

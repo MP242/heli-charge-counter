@@ -1,0 +1,55 @@
+@use 'src/styles/_variables.scss' as v;
+@use 'src/styles/_mixins.scss' as m;
+
+.Accordion {
+  min-height: 40px;
+  // background-color: red;
+  color: #fff;
+  border-bottom: 1px solid v.$secondary-color;
+  font-weight: 300;
+
+  &__mainLine {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: v.$dark-color;
+    }
+  }
+
+  &__table {
+    border-collapse: collapse;
+    width: 100%;
+
+    th,
+    td {
+      border: 1px solid v.$secondary-color;
+      padding: 8px;
+      text-align: center;
+      font-weight: 300;
+    }
+
+    th {
+      background-color: #383838;
+      color: v.$light-color;
+      font-weight: 300;
+    }
+
+    tr {
+      &:nth-child(even) {
+        background-color: #383838;
+        color: v.$light-color;
+        font-weight: 300;
+      }
+
+      &:hover {
+        background-color: v.$dark-color;
+      }
+    }
+  }
+}

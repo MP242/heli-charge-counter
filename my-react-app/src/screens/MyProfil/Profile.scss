@@ -1,0 +1,24 @@
+@use "src/styles/_variables.scss" as v;
+@use "src/styles/_mixins.scss" as m;
+
+.profile{
+    max-width: 300px;
+    margin : auto;
+    margin-top: 50px;
+    padding : v.$base-padding;
+    background-color: v.$dark-color;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Ombre portée
+
+    p{
+        color: white;
+        font-size: 20px;
+        text-align: center;
+    }
+    form label{
+        color: white;
+        font-size: 15px;
+        text-align: start;
+        display: block;
+    }
+}

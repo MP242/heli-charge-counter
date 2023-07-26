@@ -1,0 +1,12 @@
+.Home {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;    
+  }
+}

@@ -1,0 +1,33 @@
+/* Importez les styles de Navbar */
+// @import './composants/Navbar';
+
+/* Styles pour l'ensemble de l'application */
+.App {
+  text-align: center;
+  max-width: 1500px; /* Largeur maximale de l'application */
+
+  /* Ajoutez une marge horizontale pour centrer l'application sur les grands écrans */
+  margin: 0 auto;
+
+  /* Media Query pour les écrans plus petits (par exemple, les mobiles) */
+  @media (max-width: 768px) {
+    /* Styles pour les écrans avec une largeur maximale de 768px */
+    .App {
+      /* Ajoutez une marge supérieure pour faire de la place à la navbar mobile */
+      padding-top: 3rem;
+    }
+
+    /* Styles spécifiques pour la Navbar mobile */
+    .mobile-navbar {
+      /* Ajoutez vos styles spécifiques pour la navbar mobile ici */
+      /* Par exemple, afficher la navbar en haut de l'écran */
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+    }
+  }
+}

@@ -8,6 +8,6 @@ test('renders learn react link', () => {
       <App />
     </BrowserRouter>
   );
-  const linkElement = screen.getByText('Bienvenue sur la page d\'accueil !');
+  const linkElement = screen.getByText("Bienvenue sur la page d'accueil !");
   expect(linkElement).toBeInTheDocument();
 });

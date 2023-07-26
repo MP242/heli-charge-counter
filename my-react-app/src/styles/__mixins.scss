@@ -1,0 +1,66 @@
+@mixin vertical-list($margin: 0, $gap: 0) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: $margin;
+    gap: $gap;
+}
+
+@mixin horizontal-list($margin: 0, $gap: 0) {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    margin: $margin;
+    gap: $gap;
+}
+
+@mixin font-style($font-family: Arial, $font-size: 16px, $font-weight: normal, $color: black) {
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    color: $color;
+}
+
+@mixin button-styles($bg-color: blue, $font-color: white, $border-radius: 5px) {
+    background-color: $bg-color;
+    color: $font-color;
+    border: none;
+    border-radius: $border-radius;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $font-color;
+        color: $bg-color;
+    }
+}
+
+@mixin transition($property: all, $duration: 0.3s, $timing-function: ease) {
+    transition: $property $duration $timing-function;
+}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 600px) { @content; }
+    }
+    @else if $breakpoint == tablet-portrait {
+        @media (max-width: 900px) { @content; }
+    }
+    @else if $breakpoint == tablet-landscape {
+        @media (max-width: 1200px) { @content; }
+    }
+    @else if $breakpoint == desktop {
+        @media (max-width: 1800px) { @content; }
+    }
+    @else if $breakpoint == big-desktop {
+        @media (min-width: 1801px) { @content; }
+    }
+}

@@ -21,8 +21,7 @@ export function useDeleteUser() {
       .finally(() => {
         setLoading(false);
       });
-  };
+  }
 
   return { deleteUser, error, loading };
 }
-

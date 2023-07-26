@@ -1,15 +1,15 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const cors = require('cors');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const countersRouter = require('./routes/counters');
 
 var app = express();
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,39 +25,26 @@ app.use(cors());
 const dotenv = require('dotenv');
 dotenv.config();
 
-// const { MongoClient } = require("mongodb");
-// const uri = `${process.env.MONGODB_URI}`;
-// const client = new MongoClient(uri);
-
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+const dbUser = process.env.dbUser;
+const dbUserPassword = process.env.dbUserPassword;
+const nameCollection = process.env.nameCollection;
+
+const mongodbUri = `mongodb+srv://${dbUser}:${dbUserPassword}@cluster0.ebunvbh.mongodb.net/${nameCollection}?retryWrites=true&w=majority`;
+
+mongoose.connect(mongodbUri, { useNewUrlParser: true, useUnifiedTopology: true });
 const database = mongoose.connection;
 
 database.on('error', console.error.bind(console, 'connection error:'));
 database.once('open', function() {
-  console.log('MongoDB connected!');
+  console.log('MongoDB connected!');  
 });
 
 app.locals.database = database;
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-// async function run() {
-//   try {
-//     const database = client.db('test');
-//     console.log('Connected to MongoDB server');
-//     app.locals.database = database;
-//     app.use('/', indexRouter);
-//     app.use('/users', usersRouter);
-//     app.use('/login', loginRouter);
-//   } catch (err) {
-//     console.error(err);
-//     process.exit(1);
-//   }
-// }
-// run().catch(console.dir);
-
+app.use('/counters', countersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

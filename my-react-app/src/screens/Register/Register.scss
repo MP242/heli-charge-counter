@@ -1,0 +1,44 @@
+@use "src/styles/_variables.scss" as v;
+@use "src/styles/_mixins.scss" as m;
+
+.register{        
+    @include m.vertical-list(50px,10px);
+
+    &__container{
+        background-color: v.$dark-color;
+        border-radius: 10px;
+        width: 300px;        
+        padding : v.$base-padding;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Ombre portée
+
+        &__title{
+            text-align: center;
+            font-size: 30px;        
+            color: white;
+        }
+        &__inputContainer{
+            display:flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+
+            &__errors{
+                color: v.$error-color;
+                font-size: 12px;
+                text-align: start;
+            }
+        }
+        &__NameSurnameContainer{
+            @include m.horizontal-list(0,10px);
+            &__NameSurnameSubContainer{
+                text-align: start;
+            }
+        }    
+        &__btnContainer{
+            @include m.vertical-list(10px,10px); 
+            &__disabled{
+                background-color: v.$secondary-color;
+            }       
+        }
+    }
+}
